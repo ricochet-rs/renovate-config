@@ -9,7 +9,7 @@
   ],
   "prConcurrentLimit": 5,
   "autodiscover": true,
-  "automergeType": "branch",
+  "automergeType": "pr",
   "major": { "automerge": false },
   "automerge": true,
   "lockFileMaintenance": { "enabled": true },
