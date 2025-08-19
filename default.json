@@ -1,0 +1,51 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":maintainLockFilesWeekly",
+    ":enablePreCommit",
+    "schedule:weekends",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "prConcurrentLimit": 5,
+  "autodiscover": true,
+  "automergeType": "branch",
+  "major": { "automerge": false },
+  "automerge": true,
+  "lockFileMaintenance": { "enabled": true },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/|\\.)([Dd]ocker|[Cc]ontainer)file$/",
+        "/(^|/)([Dd]ocker|[Cc]ontainer)file[^/]*$/"
+      ],
+      "matchStrings": [
+        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=\"(?<currentValue>.*)\"\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^Makefile$/"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( registryUrl=(?<registryUrl>.*?))?( versioning=(?<versioning>.*?))?\\n.*?_VERSION (:|\\?)= (?<currentValue>.*)\\s"
+      ]
+    }
+  ],
+  "labels": ["dependency 📦️"],
+  "packageRules": [
+    { "matchManagers": ["cargo", "npm", "dockerfile"] },
+    {
+      "groupName": "cargo deps non-major",
+      "matchManagers": ["cargo"],
+      "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "groupName": "pre-commit non-major",
+      "matchManagers": ["pre-commit"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "addLabels": ["build"]
+    }
+  ]
+}
