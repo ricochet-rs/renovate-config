@@ -9,6 +9,7 @@
   ],
   "prConcurrentLimit": 5,
   "osvVulnerabilityAlerts": true,
+  "configMigration": true,
   "autodiscover": true,
   "automergeType": "pr",
   "major": { "automerge": false },
