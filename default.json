@@ -8,6 +8,7 @@
     ":semanticCommitTypeAll(chore)"
   ],
   "prConcurrentLimit": 5,
+  "osvVulnerabilityAlerts": true,
   "autodiscover": true,
   "automergeType": "pr",
   "major": { "automerge": false },
