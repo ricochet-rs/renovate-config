@@ -21,7 +21,8 @@
       "customType": "regex",
       "managerFilePatterns": [
         "/(^|/|\\.)([Dd]ocker|[Cc]ontainer)file$/",
-        "/(^|/)([Dd]ocker|[Cc]ontainer)file[^/]*$/"
+        "/(^|/)([Dd]ocker|[Cc]ontainer)file[^/]*$/",
+        "/\\.env$/"
       ],
       "matchStrings": [
         "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?_VERSION=\"(?<currentValue>.*)\"\\s"
