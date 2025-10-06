@@ -25,7 +25,7 @@
         "/\\.env$/"
       ],
       "matchStrings": [
-        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))\\s.*?_VERSION=\"(?<currentValue>.*)\"\\s"
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( registryUrl=(?<registryUrl>.*?))?( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))\\s.*?(ARG\\s+)?_VERSION[=:]\\s*(?<currentValue>.*)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
