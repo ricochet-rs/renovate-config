@@ -26,7 +26,8 @@
         "/\\.env$/"
       ],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( registryUrl=(?<registryUrl>.*?))?( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?\\s.*?(ARG\\s+)?_VERSION[=:]\\s*(?<currentValue>.*)\\s"
+        "# renovate: datasource=(?<datasource>\\S+)(?:.*?depName=(?<depName>\\S+))?(?:.*?registryUrl=(?<registryUrl>\\S+))?(?:.*?extractVersion=(?<extractVersion>\\S+))?(?:.*?versioning=(?<versioning>\\S+))?\\s.*?(ARG\\s+)?\\w*_?VERSION[=:]\\s*version_(?<currentValue>\\d+)\\s",
+        "# renovate: datasource=(?<datasource>\\S+)(?:.*?depName=(?<depName>\\S+))?(?:.*?registryUrl=(?<registryUrl>\\S+))?(?:.*?extractVersion=(?<extractVersion>\\S+))?(?:.*?versioning=(?<versioning>\\S+))?\\s.*?(ARG\\s+)?\\w*_?VERSION[=:]\\s*(?<currentValue>\\S+)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
@@ -48,7 +49,7 @@
     {
       "groupName": "node deps non-major",
       "matchManagers": ["bun", "npm"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor", "patch"]
     }
   ]
 }
