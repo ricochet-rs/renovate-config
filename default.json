@@ -22,6 +22,7 @@
       "managerFilePatterns": [
         "/(^|/|\\.)([Dd]ocker|[Cc]ontainer)file$/",
         "/(^|/)([Dd]ocker|[Cc]ontainer)file[^/]*$/",
+        "/(^|/)container/([Dd]ocker|[Cc]ontainer)file[^/]*$/",
         "/\\.env$/"
       ],
       "matchStrings": [
