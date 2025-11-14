@@ -3,9 +3,12 @@
   "extends": [
     "config:recommended",
     ":maintainLockFilesWeekly",
+    "schedule:automergeDaily",
+    "schedule:daily",
+    ":semanticCommitTypeAll(chore)",
     ":enablePreCommit",
-    "schedule:weekends",
-    ":semanticCommitTypeAll(chore)"
+    "abandonments:recommended",
+    ":configMigration"
   ],
   "prConcurrentLimit": 5,
   "osvVulnerabilityAlerts": true,
