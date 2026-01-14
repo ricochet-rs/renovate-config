@@ -33,6 +33,15 @@
         "# renovate: datasource=(?<datasource>\\S+)(?:.*?depName=(?<depName>\\S+))?(?:.*?registryUrl=(?<registryUrl>\\S+))?(?:.*?extractVersion=(?<extractVersion>\\S+))?(?:.*?versioning=(?<versioning>\\S+))?\\s.*?(ARG\\s+)?\\w*_?VERSION[=:]\\s*(?<currentValue>\\S+)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "customType": "regex",
+      "description": "Matches shell scripts with vendored dependency versions",
+      "managerFilePatterns": ["/\\.sh$/"],
+      "matchStrings": [
+        "#\\s*renovate:\\s*depName=(?<depName>[^\\s]+)\\s+datasource=(?<datasource>[^\\s]+)\\s*\\nexport\\s+\\w+_VERSION=\"(?<currentValue>[^\"]+)\""
+      ],
+      "versioningTemplate": "semver"
     }
   ],
   "labels": ["dependency 📦️"],
