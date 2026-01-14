@@ -62,6 +62,16 @@
       "groupName": "node deps non-major",
       "matchManagers": ["bun", "npm"],
       "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "description": "Update vendored dependencies monthly",
+      "matchFileNames": [
+        "**/*.sh",
+        "**/Dockerfile*",
+        "**/Containerfile*",
+        "**/*.env"
+      ],
+      "schedule": ["on the first day of the month"]
     }
   ]
 }
