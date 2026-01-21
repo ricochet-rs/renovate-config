@@ -72,6 +72,12 @@
         "**/*.env"
       ],
       "schedule": ["on the first day of the month"]
+    },
+    {
+      "description": "Group crow and docker-compose manager updates",
+      "matchManagers": ["crow", "docker-compose"],
+      "groupName": "crow and docker-compose",
+      "schedule": ["every monday"]
     }
   ]
 }
