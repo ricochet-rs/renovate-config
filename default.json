@@ -16,7 +16,6 @@
   "autodiscover": true,
   "automergeType": "pr",
   "major": { "automerge": false },
-  "minimumReleaseAge": "7 days",
   "automerge": true,
   "lockFileMaintenance": { "enabled": true },
   "customManagers": [
@@ -50,7 +49,8 @@
     {
       "groupName": "cargo deps non-major",
       "matchManagers": ["cargo"],
-      "matchUpdateTypes": ["minor", "patch"]
+      "matchUpdateTypes": ["minor", "patch"],
+      "minimumReleaseAge": "7 days"
     },
     {
       "groupName": "pre-commit non-major",
