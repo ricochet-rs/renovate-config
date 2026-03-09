@@ -17,7 +17,13 @@
   "automergeType": "pr",
   "major": { "automerge": false },
   "automerge": true,
-  "lockFileMaintenance": { "enabled": true },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "postUpgradeTasks": {
+      "commands": ["npx prettier --write {{{lockFiles}}}"],
+      "fileFilters": ["**/*.yaml", "**/*.yml", "**/*.json"]
+    }
+  },
   "customManagers": [
     {
       "customType": "regex",
@@ -49,8 +55,7 @@
     {
       "groupName": "cargo deps non-major",
       "matchManagers": ["cargo"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "minimumReleaseAge": "7 days"
+      "matchUpdateTypes": ["minor", "patch"]
     },
     {
       "groupName": "pre-commit non-major",
