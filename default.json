@@ -1,5 +1,5 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "$schema": "https://docs.renovatebot.com/renovate-global-schema.json",
   "extends": [
     "config:recommended",
     ":maintainLockFilesWeekly",
@@ -18,11 +18,7 @@
   "major": { "automerge": false },
   "automerge": true,
   "lockFileMaintenance": {
-    "enabled": true,
-    "postUpgradeTasks": {
-      "commands": ["npx prettier --write {{{lockFiles}}}"],
-      "fileFilters": ["**/*.yaml", "**/*.yml", "**/*.json"]
-    }
+    "enabled": true
   },
   "customManagers": [
     {
