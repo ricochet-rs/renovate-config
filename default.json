@@ -11,6 +11,7 @@
     ":configMigration"
   ],
   "prConcurrentLimit": 5,
+  "prBodyNotes": ["Instructions-PR: none"],
   "osvVulnerabilityAlerts": true,
   "configMigration": true,
   "autodiscover": true,
@@ -66,12 +67,7 @@
     },
     {
       "description": "Update vendored dependencies monthly",
-      "matchFileNames": [
-        "**/*.sh",
-        "**/Dockerfile*",
-        "**/Containerfile*",
-        "**/*.env"
-      ],
+      "matchFileNames": ["**/*.sh", "**/Dockerfile*", "**/Containerfile*", "**/*.env"],
       "schedule": ["on the first day of the month"]
     },
     {
