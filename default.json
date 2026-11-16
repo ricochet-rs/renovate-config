@@ -67,7 +67,12 @@
     },
     {
       "description": "Update vendored dependencies monthly",
-      "matchFileNames": ["**/*.sh", "**/Dockerfile*", "**/Containerfile*", "**/*.env"],
+      "matchFileNames": [
+        "**/*.sh",
+        "**/Dockerfile*",
+        "**/Containerfile*",
+        "**/*.env"
+      ],
       "schedule": ["on the first day of the month"]
     },
     {
@@ -75,6 +80,20 @@
       "matchManagers": ["crow", "docker-compose"],
       "groupName": "crow and docker-compose",
       "schedule": ["every monday"]
+    },
+    {
+      "description": "Bump the declared range on every in-range update instead of only refreshing the lockfile. Otherwise direct dependencies (prettier, eslint, vue-tsc, ...) only move during lock file maintenance, where a formatter or linter release changes CI output inside an unrelated bulk PR that then fails. With bump, lock file maintenance only refreshes transitive dependencies.",
+      "matchManagers": ["npm", "bun", "pep621"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "description": "Move the prettier package and its pre-commit mirror in one PR, so the hook that formats locally and the copy CI checks with never run different versions. Keep this after any node deps group so it wins.",
+      "groupName": "prettier",
+      "matchPackageNames": [
+        "prettier",
+        "rbubley/mirrors-prettier",
+        "pre-commit/mirrors-prettier"
+      ]
     }
   ]
 }
