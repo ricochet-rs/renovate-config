@@ -5,6 +5,7 @@
     ":maintainLockFilesWeekly",
     "schedule:automergeDaily",
     "schedule:daily",
+    ":semanticCommits",
     ":semanticCommitTypeAll(chore)",
     ":enablePreCommit",
     "abandonments:recommended",
